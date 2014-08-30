@@ -23,6 +23,7 @@
   "devDependencies": {
     "tape": "^2.14.0",
     "faucet": "*",
-    "supertest": "^0.13.0"
+    "supertest": "^0.13.0",
+    "cheerio": "^0.17.0"
   }
 }

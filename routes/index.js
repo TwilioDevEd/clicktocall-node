@@ -39,7 +39,6 @@ module.exports = function(app) {
         
         // Place an outbound call to the user, using the TwiML instructions
         // from the /outbound route
-        console.log(request.body);
         client.makeCall({
             to: request.body.phoneNumber,
             from: config.twilioNumber,
