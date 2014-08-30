@@ -39,14 +39,28 @@ module.exports = function(app) {
         
         // Place an outbound call to the user, using the TwiML instructions
         // from the /outbound route
+        console.log(request.body);
         client.makeCall({
             to: request.body.phoneNumber,
             from: config.twilioNumber,
             url: url
         }, function(err, message) {
+            console.log(err);
             if (err) {
-                response.send(500, err);
+                response.status(500).send(err);
+            } else {
+                response.send({
+                    message: 'Thank you! We will be calling you shortly.'
+                });
             }
         });
+    });
+
+    // Return TwiML instuctions for the outbound call
+    app.post('/outbound', function(request, response) {
+        // We could use twilio.TwimlResponse, but Jade works too - here's how
+        // we would render a TwiML (XML) response using Jade
+        response.type('text/xml');
+        response.render('outbound');
     });
 };

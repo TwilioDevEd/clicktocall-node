@@ -2,10 +2,14 @@ doctype html
 html(lang="en")
   head
     title Click To Call Tutorial
+
+    // We use Twitter Bootstrap as the default styling for our page
     link(rel='stylesheet', 
       href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
     link(rel='stylesheet', 
       href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css')
+
+    // Include CSS for our third-party telephone input jQuery plugin
     link(rel='stylesheet', href='/vendor/intl-phone/css/intlTelInput.css')
   body
     .container
@@ -22,7 +26,7 @@ html(lang="en")
       // C2C contact form
       .row
         .col-md-12
-          form(role='form', action='/call', method='POST')
+          form(id='contactForm', role='form')
             .form-group
               h3 Call Sales
               p.help-block.
@@ -34,6 +38,9 @@ html(lang="en")
                 placeholder='(651) 555-7889')
             button(type='submit', class='btn btn-default') Contact Sales
 
+    // Include page dependencies
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='/vendor/intl-phone/js/intlTelInput.min.js')
+
+    // Our app's front-end JavaScript logic
     script(src='/app.js')
