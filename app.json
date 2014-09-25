@@ -18,7 +18,21 @@
   "logo": "https://s3-us-west-2.amazonaws.com/deved/twilio-logo.png",
   "success_url": "/",
   "env": {
+    "TWILIO_ACCOUNT_SID": {
+      "description": "Your Twilio account secret ID, you can find at: https://www.twilio.com/user/account",
+      "value": "enter_your_account_sid_here"
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "Your secret Twilio Auth token, you can find at: https://www.twilio.com/user/account",
+      "value": "enter_your_auth_token_here"
+    },
+    "TWILIO_NUMBER": {
+      "description": "The Twilio phone number you are using for this app. You can get one here: https://www.twilio.com/user/account/phone-numbers/incoming",
+      "value": "+15005550006"
+    }
   },
   "addons": [
+    "openredis",
+    "mongolab:shared-single-small"
   ]
 }
