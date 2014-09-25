@@ -17,4 +17,8 @@
   "repository": "https://github.com/TwilioDevEd/template-node",
   "logo": "https://s3-us-west-2.amazonaws.com/deved/twilio-logo.png",
   "success_url": "/",
+  "env": {
+  },
+  "addons": [
+  ]
 }
