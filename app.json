@@ -30,9 +30,5 @@
       "description": "The Twilio phone number you are using for this app. You can get one here: https://www.twilio.com/user/account/phone-numbers/incoming",
       "value": "+15005550006"
     }
-  },
-  "addons": [
-    "openredis",
-    "mongolab:shared-single-small"
-  ]
+  }
 }
