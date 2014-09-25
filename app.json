@@ -1,0 +1,20 @@
+{
+  "name": "Click To Call: Twilio & Node",
+  "description": "An example of implementing click to call functionality in a Node.js application",
+  "keywords": [
+    "node.js",
+    "API",
+    "twilio",
+    "expressjs",
+    "Express",
+    "Tutorial",
+    "Telephone API",
+    "Voice API",
+    "REST API",
+    "Demo"
+  ],
+  "website": "https://twilio.com/docs/howto/click-to-call-walkthrough",
+  "repository": "https://github.com/TwilioDevEd/template-node",
+  "logo": "https://s3-us-west-2.amazonaws.com/deved/twilio-logo.png",
+  "success_url": "/",
+}
