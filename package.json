@@ -4,7 +4,8 @@
   "description": "An example of implementing click to call functionality in a Node.js application",
   "main": "app.js",
   "scripts": {
-    "test": "node test | faucet"
+    "test": "node test | faucet",
+     "start": "node app.js" 
   },
   "keywords": [
     "twilio",
