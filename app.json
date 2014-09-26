@@ -14,7 +14,7 @@
     "Demo"
   ],
   "website": "https://twilio.com/docs/howto/click-to-call-walkthrough",
-  "repository": "https://github.com/TwilioDevEd/template-node",
+  "repository": "https://github.com/TwilioDevEd/clicktocall-node",
   "logo": "https://s3-us-west-2.amazonaws.com/deved/twilio-logo.png",
   "success_url": "/",
   "env": {
