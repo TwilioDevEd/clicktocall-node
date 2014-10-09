@@ -16,7 +16,7 @@
   "website": "https://twilio.com/docs/howto/click-to-call-walkthrough",
   "repository": "https://github.com/TwilioDevEd/clicktocall-node",
   "logo": "https://s3-us-west-2.amazonaws.com/deved/twilio-logo.png",
-  "success_url": "/",
+  "success_url": "/landing.html",
   "env": {
     "TWILIO_ACCOUNT_SID": {
       "description": "Your Twilio account secret ID, you can find at: https://www.twilio.com/user/account",
