@@ -53,8 +53,7 @@ Are you using a bash shell? Use echo $SHELL to find out. For a bash shell, using
 <pre>
 export TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxx
 export TWILIO_AUTH_TOKEN=yyyyyyyyyyyyyyyyy
-export TWILIO_APP_SID=APzzzzzzzzzzzzzzzzzz
-export TWILIO_CALLER_ID=+15556667777
+export TWILIO_NUMBER=+15556667777
 </pre>
 
 Are you using Windows or Linux? You can read how to set variables [here](https://www.java.com/en/download/help/path.xml).
