@@ -15,7 +15,7 @@ module.exports = function(app) {
 
     // Express static file middleware - serves up JS, CSS, and images from the
     // "public" directory where we started our webapp process
-    app.use(express.static(path.join(process.cwd(), "public")));
+    app.use(express.static(path.join(process.cwd(), 'public')));
 
     // Parse incoming request bodies as form-encoded
     app.use(bodyParser.urlencoded({
