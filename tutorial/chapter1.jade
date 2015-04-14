@@ -1,0 +1,53 @@
+.step(data-title='How it Works')
+  :markdown
+    ## How It Works
+
+    Let's go over the steps necessary to implement click-to-call in our application:
+
+    ![Click-to-call Diagram](//s3-us-west-2.amazonaws.com/deved/clicktocall.png)
+
+    1. A website visitor wants to connect to your organization.  She submits a web form with her phone number to receive a call connecting her to your sales or support team. 
+
+    1. Your web application receives the form submission.  An HTTP request is initiated from your application to Twilio to initiate an outbound call. 
+
+    1. Twilio receives the request and initiates a call to the user's phone number.
+
+    1. User receives the call.
+
+    1. After the call connects, Twilio asks our application for [TwiML instructions](/docs/api/twiml). Our TwiML instructs Twilio to connect the user to our sales or support teams.
+
+    ## What We Will Learn
+
+    This How-To demonstrates initializing a call using the [Twilio REST API][rest] and creating TwiML call logic using the [Say][say] and [Dial][dial] verbs.
+
+    Sound like a plan? Let's get started!
+
+    [rest]: /docs/api/rest/
+    [dial]: /docs/api/twiml/dial
+    [say]: /docs/api/twiml/say
+.step(data-title="Application Overview", data-file='app.js')
+  :markdown
+    ## Our Node.js Application
+
+    In this example, we're using the [Express framework](http://expressjs.com) for Node. Express is a popular, lightweight web framework similar to [Sinatra](http://sinatrarb.com) that provides HTTP request routing, server-side HTML rendering, and a configureable middleware stack to process incoming requests.
+
+    To run this application locally, you can download it from the links above.  After extracting the app to a local directory, make sure to run `npm install` in that directory to install all of the application's dependencies from [npm](http://npmjs.org).
+
+    This file, `app.js`, creates our Express application and starts an HTTP server.  Most of the server-side code for this example, however, is found in `routes/index.js`. We'll check that out in a moment, but first we need to configure our application with our Twilio account information.
+
+
+.step(data-title='Configuration', data-file='config.js')
+  :markdown
+    ## Application Configuration
+
+    In this file, we pull in all the account configuration we need to run the application. Rather than storing these configuration values in a source file, you may want to store them as system environment variables. In this Node.js code, we're reading in values from these variables. On *nix systems, you can quickly create new environment variables with `export YOUR_VARIABLE=somevalue`.
+
+    Our app will need your Twilio account credentials and a phone number to use for outbound calls. Your account credentials can be [found on your dashboard](/user/account):
+
+    * `TWILIO_ACCOUNT_SID` : Replace XXX with your account SID - this is like your username for the Twilio API
+    * `TWILIO_AUTH_TOKEN` : Replace YYY with your auth token - this is like your password for the Twilio API
+    * `TWILIO_NUMBER` : Replace +16128675309 with a Twilio number [from your account](/user/account/phone-numbers/incoming)
+
+    Additionally, we've configured a `PORT` for our HTTP server to run on. Leaving these values as-is should be fine. 
+
+    Okay, now that our app is configured, let's move on to the code. We'll begin by showing how we render the home page for this application.
