@@ -1,5 +1,6 @@
 {
     "title": "Click-to-Call",
+    "description": "Click-to-call enables your company to convert web traffic into phone calls with the click of a button. Learn how to implement it in minutes.",
     "repo": "TwilioDevEd/clicktocall-node",
     "heroku": true
 }
