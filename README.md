@@ -3,9 +3,7 @@
 An example application implementing Click to Call using Twilio.  For a
 step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-call).
 
-Deploy this example app to Heroku now!
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TwilioDevEd/clicktocall-node)
+[Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/click-to-call/node/express)!
 
 ## Installation
 
