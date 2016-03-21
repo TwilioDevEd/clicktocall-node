@@ -8,7 +8,7 @@ var config = require("../config");
 // Create a Twilio REST API client for authenticated requests to Twilio
 var client = twilio(config.accountSid, config.authToken);
 
-// Configure appplication routes
+// Configure application routes
 module.exports = function(app) {
     // Set Jade as the default template engine
     app.set('view engine', 'jade');
