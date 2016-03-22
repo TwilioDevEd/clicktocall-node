@@ -1,6 +1,6 @@
 # Click to Call - Node.js
 
-An example application implementing Click to Call using Twilio.  For a
+This is an application example implementing Click to Call using Twilio.  For a
 step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-call).
 
 [Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/click-to-call/node/express)!
@@ -11,15 +11,15 @@ Step-by-step on how to deploy, configure and develop on this example app.
 
 ### Fastest Deploy
 
-Use Heroku to deploy this app immediately:
+Use Heroku to deploy this app immediately.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TwilioDevEd/clicktocall-node)
 
-### Getting Started 
+### Getting Started
 
-1) Grab latest source
+1) Grab the latest source
 <pre>
-git clone git://github.com/TwilioDevEd/clicktocall-node.git 
+git clone git://github.com/TwilioDevEd/clicktocall-node.git
 </pre>
 
 2) Navigate to folder and create new Heroku Cedar app
@@ -54,20 +54,20 @@ export TWILIO_AUTH_TOKEN=yyyyyyyyyyyyyyyyy
 export TWILIO_NUMBER=+15556667777
 </pre>
 
-Are you using Windows or Linux? You can read how to set variables [here](https://www.java.com/en/download/help/path.xml).
+Are you using Windows or Linux? You can learn more about how to set variables [here](https://www.java.com/en/download/help/path.xml).
 
 ### Development
 
-Getting your local environment setup to work with this app is similarly
-easy.  After you configure your app with the steps above, use this guide to
-get going locally:
+Getting your local environment setup to work with this app is easy.  
+After you configure your app with the steps above use this guide to
+get it going locally.
 
 1) Install the dependencies.
 <pre>
 npm install
 </pre>
 
-2) Launch local development webserver
+2) Launch local development webserver.
 <pre>
 node app.js
 </pre>
@@ -76,7 +76,7 @@ node app.js
 
 4) Tweak away on `routes/index.js`.
 
-## Meta 
+## Meta
 
 * No warranty expressed or implied.  Software is as is. Diggity.
 * [MIT License](http://www.opensource.org/licenses/mit-license.html)
