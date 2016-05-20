@@ -9,7 +9,7 @@
 .wrapper {
   height:100%;
   width:100%;
-}</style><link rel="shortcut icon" href="//twilio.com/bundles/marketing/img/favicons/favicon.ico"><link rel="apple-touch-icon" href="//twilio.com/bundles/marketing/img/favicons/favicon_57.png"><link rel="apple-touch-icon" sizes="72x72" href="//twilio.com/bundles/marketing/img/favicons/favicon_72.png"><link rel="apple-touch-icon" sizes="114x114" href="//twilio.com/bundles/marketing/img/favicons/favicon_114.png"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"><link rel="stylesheet" href="viewsaurus.css"></head><body><div class="wrapper"><div id="viewsaurus" data-title="Click-to-Call"><div class="saurus-panes"><div class="saurus-prose"><div class="saurus-prose-header"><div class="title-outer"><span class="step-title">Click-to-Call</span></div></div><div class="saurus-nav-buttons"><div class="saurus-nav-button nav-overview"><div class="saurus-nav-button-inner"><i class="fa fa-fw fa-list"></i></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-previous"><div class="saurus-nav-button-inner"><a href=""> <i class="fa fa-fw fa-play fa-rotate-180"></i></a></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-next clickable"><div class="saurus-nav-button-inner"><a href="#1"> <i class="fa fa-fw fa-play"></i></a></div></div><div class="saurus-next-title"><span class="next-title-inner"></span></div></div><div class="saurus-progress-bar"></div><div class="saurus-start"><p>Click-to-call enables your company to convert web traffic into phone calls with the click of a button. Learn how to implement it in minutes.</p><a href="#0">Start Tutorial</a></div><div class="saurus-content"><div data-title="How it Works" class="step"><h2 id="how-it-works">How It Works</h2>
+}</style><link rel="shortcut icon" href="//twilio.com/bundles/marketing/img/favicons/favicon.ico"><link rel="apple-touch-icon" href="//twilio.com/bundles/marketing/img/favicons/favicon_57.png"><link rel="apple-touch-icon" sizes="72x72" href="//twilio.com/bundles/marketing/img/favicons/favicon_72.png"><link rel="apple-touch-icon" sizes="114x114" href="//twilio.com/bundles/marketing/img/favicons/favicon_114.png"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"><link rel="stylesheet" href="viewsaurus.css"></head><body><div class="wrapper"><div id="viewsaurus" data-title="Click-to-Call"><div class="saurus-panes"><div class="saurus-prose"><div class="saurus-prose-header"><div class="title-outer"><span class="step-title">Click-to-Call</span></div></div><div class="saurus-nav-buttons"><div class="saurus-nav-button nav-overview"><div class="saurus-nav-button-inner"><i class="fa fa-fw fa-list"></i></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-previous"><div class="saurus-nav-button-inner"><a href=""> <i class="fa fa-fw fa-play fa-rotate-180"></i></a></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-next clickable"><div class="saurus-nav-button-inner"><a href="#1"> <i class="fa fa-fw fa-play"></i></a></div></div><div class="saurus-next-title"><span class="next-title-inner"></span></div></div><div class="saurus-progress-bar"></div><div class="saurus-start"><p>Click-to-call enables your company to convert web traffic into phone calls with the click of a button. Learn how to implement it in minutes.</p><a href="#0">Start Tutorial</a></div><div class="saurus-content"><div data-title="Click to Call Spring" class="chapter"><div data-title="How it Works" class="step"><h2 id="how-it-works">How It Works</h2>
 <p>Let&#39;s go over the necessary steps to implement click-to-call</p>
 <p><img src="//s3-us-west-2.amazonaws.com/deved/clicktocall.png" alt="Click-to-call Diagram"></p>
 <ol>
@@ -32,6 +32,10 @@ to our sales or support teams.</p>
 API</a> and how to create a TwiML call logic using the
 <a href="//www.twilio.com/docs/api/twiml/say">Say</a> verb.</p>
 <p>Sounds like a plan? Let&#39;s get started!</p>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//www.twilio.com/docs/node/install">Twilio Node Helper Library</a></li>
+</ul>
 </div><div data-title="Environment" data-file="app.json" data-mode="dot" data-highlight="20-33" class="step"><h2 id="environment">Environment</h2>
 <p>To create our click-to-call application we need to setup our environment first.</p>
 <p>Let&#39;s put our Twilio credentials in a place where our application can access them. For the
@@ -41,8 +45,8 @@ purposes of this tutorial we&#39;ll place them as environment variables that our
 readme file</a>.</p>
 </div><div data-title="The Web Form" data-file="views/index.jade" data-highlight="26-39" class="step"><h2 id="the-web-form">The Web Form</h2>
 <p>The first step on creating a real click-to-call solution is by building the form that your
-user needs to fill on the web. No need to overthink this, the real goal is to POST the User&#39;s name
-and phone number to your controller.</p>
+user needs to fill on the web. No need to overthink this, the real goal is to POST the User&#39;s
+phone number to your controller.</p>
 <p>So what information does this form need? An input for the phone number and
 a submit button. Since the page doesn&#39;t need to render new content after clicking
 on submit, we decided to implement the POST action via Ajax using jQuery.
@@ -53,19 +57,19 @@ Let&#39;s take a look at it.</p>
 code shows one way you could implement this functionality using <a href="http://jquery.org">jQuery</a>.</p>
 <p>This code does the following:</p>
 <ul>
-<li>Watches for the user &quot;submitting&quot; the form element</li>
-<li>Submits the form data to our controller</li>
-<li>Lets the user know if the submission was successful or not</li>
+<li>Watches for the user &quot;submitting&quot; the form element.</li>
+<li>Submits the form data to our controller.</li>
+<li>Lets the user know if the submission was successful or not.</li>
 </ul>
 <p>This is a common implementation of jQuery&#39;s <code>$.ajax()</code> method. Notice that we are
 returning the response message when the call has connected.</p>
 <p>Now that we have the front end done lets build the back end that will receive this data and
 call the user.</p>
 </div><div data-title="Initiate Client Object" data-file="routes/index.js" data-highlight="9" class="step"><h2 id="initiate-client-object">Initiate Client Object</h2>
-<p> First we initiate a <code>client</code> object with our Account SID and Auth Token. This is essentially
- our Javascript REST API handler, which we could use to send SMS or a myriad of other things. But for
- now we just need it to get access to some <code>twilio</code> object that we&#39;re going to use
- to create phone calls.</p>
+<p>First we initiate a <code>client</code> object with our Account SID and Auth Token. This is essentially
+our Javascript REST API handler, which we could use to send SMS or a myriad of other things. But for
+now we just need it to get access to a <code>twilio</code> object that we&#39;re going to use
+to create phone calls.</p>
 </div><div data-title="Making a Phone Call" data-file="routes/index.js" data-highlight="42-55" class="step"><h2 id="making-a-phone-call">Making a Phone Call</h2>
 <p>Next we&#39;ll use the <code>twilio</code> object created to <a href="//www.twilio.com/docs/api/rest/making-calls">make an outgoing phone call</a>
 which requires us to pass a From number, a To number and the <a href="//www.twilio.com/docs/api/rest/making-calls#url-parameter">URL Parameter</a> that tells Twilio what
@@ -73,7 +77,7 @@ to do after it connects the call to our user. In this case Twilio needs to dial 
 call has been placed. We&#39;ll discuss this more in the next step.</p>
 </div><div data-title="The outbound endpoint" data-file="routes/index.js" data-highlight="59-64" class="step"><h2 id="the-outbound-endpoint">The outbound endpoint</h2>
 <p>Twilio makes a request to our application when the call is created using the REST API. This
-means that we need to create an endpoint that is publicly available for internet requests.</p>
+means that we need to create an endpoint that is publicly available for Internet requests.</p>
 </div><div data-title="Generating TwiML" data-file="views/outbound.jade" class="step"><h2 id="generating-twiml">Generating TwiML</h2>
 <p>TwiML is a set of <a href="//www.twilio.com/docs/api/twiml#verbs">simple verbs</a> written in XML that Twilio reads as instructions.
 In this case our instructions inform Twilio to simply SAY something to the user. If we wanted
@@ -81,24 +85,24 @@ to connect the user to a real support agent, we would have to add a
 <a href="//www.twilio.com/docs/api/twiml/dial">Dial verb</a> that specifies the support agent number
 so the customer can talk to him/her.</p>
 <p>In order to make writing TwiML easy, many of the helper libraries have methods that generate
-TwiML for you. In this case we use a <a href="//www.twilio.com/docs/api/twiml/say">Say verb</a> to create a TwiML response that will instruct
+TwiML for you. In this case we use <a href="//www.twilio.com/docs/libraries/node">twilio-node</a> to create a TwiML response that will instruct
 Twilio to say something.</p>
 </div><div data-title="Where to Next?" class="step"><h2 id="where-to-next-">Where to next?</h2>
 <p>That&#39;s it! We&#39;ve just implemented click to call that allow your customers to connect with a
 support agent.</p>
-<p>If you&#39;re a Node.js|Express developer working with Twilio, you might want to check out these
+<p>If you&#39;re a Node.js developer working with Twilio, you might want to check out these
 other tutorials:</p>
 <p><a href="//www.twilio.com/docs/tutorials/walkthrough/automated-survey/node/express"><strong>Automated Survey</strong></a></p>
 <p>Instantly collect structured data from your users with a survey
 conducted over a voice call or SMS text messages. Learn how to create
-your own survey in Node.js|Express.</p>
+your own survey in Node.js.</p>
 <p><a href="//www.twilio.com/docs/tutorials/walkthrough/server-notifications/node/express"><strong>SMS and MMS Notifications</strong></a></p>
 <p>Send SMS alerts to a list of system administrators if something goes wrong on your server.</p>
 <h3 id="did-this-help-">Did this help?</h3>
 <p>Thanks for checking out this tutorial! If you have any feedback
 to share with us, we&#39;d love to hear it.
 <a href="mailto:deved-oss@twilio.com">Contact the Twilio Developer Education Team</a> to let us know what you think.</p>
-</div>
+</div></div>
 <div class="saurus-files" style="display:none;"><textarea class="saurus-file" data-file="app.json" data-mode="dot">ewogICJuYW1lIjogIkNsaWNrIFRvIENhbGw6IFR3aWxpbyAmIE5vZGUiLAogICJkZXNjcmlwdGlvbiI6ICJBbiBleGFtcGxlIG9mIGltcGxlbWVudGluZyBjbGljayB0byBjYWxsIGZ1bmN0aW9uYWxpdHkgaW4gYSBOb2RlLmpzIGFwcGxpY2F0aW9uIiwKICAia2V5d29yZHMiOiBbCiAgICAibm9kZS5qcyIsCiAgICAiQVBJIiwKICAgICJ0d2lsaW8iLAogICAgImV4cHJlc3NqcyIsCiAgICAiRXhwcmVzcyIsCiAgICAiVHV0b3JpYWwiLAogICAgIlRlbGVwaG9uZSBBUEkiLAogICAgIlZvaWNlIEFQSSIsCiAgICAiUkVTVCBBUEkiLAogICAgIkRlbW8iCiAgXSwKICAid2Vic2l0ZSI6ICJodHRwczovL3R3aWxpby5jb20vZG9jcy9ob3d0by9jbGljay10by1jYWxsLXdhbGt0aHJvdWdoIiwKICAicmVwb3NpdG9yeSI6ICJodHRwczovL2dpdGh1Yi5jb20vVHdpbGlvRGV2RWQvY2xpY2t0b2NhbGwtbm9kZSIsCiAgImxvZ28iOiAiaHR0cHM6Ly9zMy11cy13ZXN0LTIuYW1hem9uYXdzLmNvbS9kZXZlZC90d2lsaW8tbG9nby5wbmciLAogICJzdWNjZXNzX3VybCI6ICIvbGFuZGluZy5odG1sIiwKICAiZW52IjogewogICAgIlRXSUxJT19BQ0NPVU5UX1NJRCI6IHsKICAgICAgImRlc2NyaXB0aW9uIjogIllvdXIgVHdpbGlvIGFjY291bnQgc2VjcmV0IElELCB5b3UgY2FuIGZpbmQgYXQ6IGh0dHBzOi8vd3d3LnR3aWxpby5jb20vdXNlci9hY2NvdW50IiwKICAgICAgInZhbHVlIjogImVudGVyX3lvdXJfYWNjb3VudF9zaWRfaGVyZSIKICAgIH0sCiAgICAiVFdJTElPX0FVVEhfVE9LRU4iOiB7CiAgICAgICJkZXNjcmlwdGlvbiI6ICJZb3VyIHNlY3JldCBUd2lsaW8gQXV0aCB0b2tlbiwgeW91IGNhbiBmaW5kIGF0OiBodHRwczovL3d3dy50d2lsaW8uY29tL3VzZXIvYWNjb3VudCIsCiAgICAgICJ2YWx1ZSI6ICJlbnRlcl95b3VyX2F1dGhfdG9rZW5faGVyZSIKICAgIH0sCiAgICAiVFdJTElPX05VTUJFUiI6IHsKICAgICAgImRlc2NyaXB0aW9uIjogIlRoZSBUd2lsaW8gcGhvbmUgbnVtYmVyIHlvdSBhcmUgdXNpbmcgZm9yIHRoaXMgYXBwLiBZb3UgY2FuIGdldCBvbmUgaGVyZTogaHR0cHM6Ly93d3cudHdpbGlvLmNvbS91c2VyL2FjY291bnQvcGhvbmUtbnVtYmVycy9pbmNvbWluZyIsCiAgICAgICJ2YWx1ZSI6ICIrMTUwMDU1NTAwMDYiCiAgICB9CiAgfQp9Cg==</textarea>
 <textarea class="saurus-file" data-file="views/index.jade" data-mode="jade">ZG9jdHlwZSBodG1sCmh0bWwobGFuZz0iZW4iKQogIGhlYWQKICAgIHRpdGxlIENsaWNrIFRvIENhbGwgVHV0b3JpYWwKCiAgICAvLyBXZSB1c2UgVHdpdHRlciBCb290c3RyYXAgYXMgdGhlIGRlZmF1bHQgc3R5bGluZyBmb3Igb3VyIHBhZ2UKICAgIGxpbmsocmVsPSdzdHlsZXNoZWV0JywgCiAgICAgIGhyZWY9Jy8vbWF4Y2RuLmJvb3RzdHJhcGNkbi5jb20vYm9vdHN0cmFwLzMuMi4wL2Nzcy9ib290c3RyYXAubWluLmNzcycpCiAgICBsaW5rKHJlbD0nc3R5bGVzaGVldCcsIAogICAgICBocmVmPScvL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjIuMC9jc3MvYm9vdHN0cmFwLXRoZW1lLm1pbi5jc3MnKQoKICAgIC8vIEluY2x1ZGUgQ1NTIGZvciBvdXIgdGhpcmQtcGFydHkgdGVsZXBob25lIGlucHV0IGpRdWVyeSBwbHVnaW4KICAgIGxpbmsocmVsPSdzdHlsZXNoZWV0JywgaHJlZj0nL3ZlbmRvci9pbnRsLXBob25lL2Nzcy9pbnRsVGVsSW5wdXQuY3NzJykKICBib2R5CiAgICAuY29udGFpbmVyCiAgICAgIGgxIENsaWNrIFRvIENhbGwKICAgICAgcC4KICAgICAgICBDbGljayBUbyBDYWxsIGNvbnZlcnRzIHlvdXIgd2Vic2l0ZSdzIHVzZXJzIGludG8gZW5nYWdlZCBjdXN0b21lcnMgYnkgCiAgICAgICAgY3JlYXRpbmcgYW4gZWFzeSB3YXkgZm9yIHlvdXIgY3VzdG9tZXJzIHRvIGNvbnRhY3QgeW91ciBzYWxlcyBhbmQgCiAgICAgICAgc3VwcG9ydCB0ZWFtcyByaWdodCBvbiB5b3VyIHdlYnNpdGUuCgogICAgICBwIEhlcmUncyBhbiBleGFtcGxlIG9mIGhvdyBpdCdzIGRvbmUhCgogICAgICBocgoKICAgICAgLy8gQzJDIGNvbnRhY3QgZm9ybQogICAgICAucm93CiAgICAgICAgLmNvbC1tZC0xMgogICAgICAgICAgZm9ybShpZD0nY29udGFjdEZvcm0nLCByb2xlPSdmb3JtJykKICAgICAgICAgICAgLmZvcm0tZ3JvdXAKICAgICAgICAgICAgICBoMyBDYWxsIFNhbGVzCiAgICAgICAgICAgICAgcC5oZWxwLWJsb2NrLgogICAgICAgICAgICAgICAgQXJlIHlvdSBpbnRlcmVzdGVkIGluIGltcHJlc3NpbmcgeW91ciBmcmllbmRzIGFuZCBjb25mb3VuZGluZyAKICAgICAgICAgICAgICAgIHlvdXIgZW5lbWllcz8gRW50ZXIgeW91ciBwaG9uZSBudW1iZXIgYmVsb3csIGFuZCBvdXIgdGVhbSB3aWxsIAogICAgICAgICAgICAgICAgY29udGFjdCB5b3UgcmlnaHQgYXdheS4KICAgICAgICAgICAgLmZvcm0tZ3JvdXAKICAgICAgICAgICAgICBpbnB1dC5mb3JtLWNvbnRyb2wodHlwZT0ndGV4dCcsIGlkPSdwaG9uZU51bWJlcicsIAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9Jyg2NTEpIDU1NS03ODg5JykKICAgICAgICAgICAgYnV0dG9uKHR5cGU9J3N1Ym1pdCcsIGNsYXNzPSdidG4gYnRuLWRlZmF1bHQnKSBDb250YWN0IFNhbGVzCgogICAgLy8gSW5jbHVkZSBwYWdlIGRlcGVuZGVuY2llcwogICAgc2NyaXB0KHNyYz0nLy9hamF4Lmdvb2dsZWFwaXMuY29tL2FqYXgvbGlicy9qcXVlcnkvMS4xMS4xL2pxdWVyeS5taW4uanMnKQogICAgc2NyaXB0KHNyYz0nL3ZlbmRvci9pbnRsLXBob25lL2pzL2ludGxUZWxJbnB1dC5taW4uanMnKQoKICAgIC8vIE91ciBhcHAncyBmcm9udC1lbmQgSmF2YVNjcmlwdCBsb2dpYwogICAgc2NyaXB0KHNyYz0nL2FwcC5qcycp</textarea>
 <textarea class="saurus-file" data-file="public/app.js" data-mode="javascript">Ly8gRXhlY3V0ZSBKYXZhU2NyaXB0IG9uIHBhZ2UgbG9hZAokKGZ1bmN0aW9uKCkgewogICAgLy8gSW5pdGlhbGl6ZSBwaG9uZSBudW1iZXIgdGV4dCBpbnB1dCBwbHVnaW4KICAgICQoJyNwaG9uZU51bWJlcicpLmludGxUZWxJbnB1dCh7CiAgICAgICAgcmVzcG9uc2l2ZURyb3Bkb3duOiB0cnVlLAogICAgICAgIGF1dG9Gb3JtYXQ6IHRydWUsCiAgICAgICAgdXRpbHNTY3JpcHQ6ICcvdmVuZG9yL2ludGwtcGhvbmUvbGlicGhvbmVudW1iZXIvYnVpbGQvdXRpbHMuanMnCiAgICB9KTsKCiAgICAvLyBJbnRlcmNlcHQgZm9ybSBzdWJtaXNzaW9uIGFuZCBzdWJtaXQgdGhlIGZvcm0gd2l0aCBhamF4CiAgICAkKCcjY29udGFjdEZvcm0nKS5vbignc3VibWl0JywgZnVuY3Rpb24oZSkgewogICAgICAgIC8vIFByZXZlbnQgc3VibWl0IGV2ZW50IGZyb20gYnViYmxpbmcgYW5kIGF1dG9tYXRpY2FsbHkgc3VibWl0dGluZyB0aGUKICAgICAgICAvLyBmb3JtCiAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpOwoKICAgICAgICAvLyBDYWxsIG91ciBhamF4IGVuZHBvaW50IG9uIHRoZSBzZXJ2ZXIgdG8gaW5pdGlhbGl6ZSB0aGUgcGhvbmUgY2FsbAogICAgICAgICQuYWpheCh7CiAgICAgICAgICAgIHVybDogJy9jYWxsJywKICAgICAgICAgICAgbWV0aG9kOiAnUE9TVCcsCiAgICAgICAgICAgIGRhdGFUeXBlOiAnanNvbicsCiAgICAgICAgICAgIGRhdGE6IHsKICAgICAgICAgICAgICAgIHBob25lTnVtYmVyOiAkKCcjcGhvbmVOdW1iZXInKS52YWwoKQogICAgICAgICAgICB9CiAgICAgICAgfSkuZG9uZShmdW5jdGlvbihkYXRhKSB7CiAgICAgICAgICAgIC8vIFRoZSBKU09OIHNlbnQgYmFjayBmcm9tIHRoZSBzZXJ2ZXIgd2lsbCBjb250YWluIGEgc3VjY2VzcyBtZXNzYWdlCiAgICAgICAgICAgIGFsZXJ0KGRhdGEubWVzc2FnZSk7CiAgICAgICAgfSkuZmFpbChmdW5jdGlvbihlcnJvcikgewogICAgICAgICAgICBhbGVydChKU09OLnN0cmluZ2lmeShlcnJvcikpOwogICAgICAgIH0pOwogICAgfSk7Cn0pOw==</textarea>
