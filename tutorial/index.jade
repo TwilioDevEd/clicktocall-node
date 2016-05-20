@@ -1,33 +1,37 @@
-.step(data-title='How it Works')
-  :markdown
-    ## How It Works
+.chapter(data-title='Click to Call Spring')
+  .step(data-title='How it Works')
+    :markdown
+      ## How It Works
 
-    Let's go over the necessary steps to implement click-to-call
+      Let's go over the necessary steps to implement click-to-call
 
-    ![Click-to-call Diagram](//s3-us-west-2.amazonaws.com/deved/clicktocall.png)
+      ![Click-to-call Diagram](//s3-us-west-2.amazonaws.com/deved/clicktocall.png)
 
-    1. A website visitor wants to connect to your organization.  She submits a web form with her phone number to receive a call connecting her to your sales or support team.
+      1. A website visitor wants to connect to your organization.  She submits a web form with her phone number to receive a call connecting her to your sales or support team.
 
-    1. Your web application receives the submission form.  An HTTP request is initiated from your
-    application to Twilio to initiate an outbound call.
+      1. Your web application receives the submission form.  An HTTP request is initiated from your
+      application to Twilio to initiate an outbound call.
 
-    1. Twilio receives the request and initiates a call to the user's phone number.
+      1. Twilio receives the request and initiates a call to the user's phone number.
 
-    1. User receives the call.
+      1. User receives the call.
 
-    1. After the call connects, Twilio asks our application for [TwiML
-    instructions](//www.twilio.com/docs/api/twiml). Our TwiML instructs Twilio to connect the user
-    to our sales or support teams.
+      1. After the call connects, Twilio asks our application for [TwiML
+      instructions](//www.twilio.com/docs/api/twiml). Our TwiML instructs Twilio to connect the user
+      to our sales or support teams.
 
+      ## What We Will Learn
 
-    ## What We Will Learn
+      This How-To demonstrates how to initialize a call using the [Twilio REST
+      API](//www.twilio.com/docs/api/rest) and how to create a TwiML call logic using the
+      [Say](//www.twilio.com/docs/api/twiml/say) verb.
 
-    This How-To demonstrates how to initialize a call using the [Twilio REST
-    API](//www.twilio.com/docs/api/rest) and how to create a TwiML call logic using the
-    [Say](//www.twilio.com/docs/api/twiml/say) verb.
+      Sounds like a plan? Let's get started!
 
-    Sounds like a plan? Let's get started!
-.step(data-title='Environment', data-file='app.json', data-mode='dot', data-highlight="20-33")
+      **See Also:**
+      * [Twilio Node Helper Library](//www.twilio.com/docs/node/install)
+
+  .step(data-title='Environment', data-file='app.json', data-mode='dot', data-highlight="20-33")
     :markdown
       ## Environment
 
@@ -46,15 +50,15 @@
       ## The Web Form
 
       The first step on creating a real click-to-call solution is by building the form that your
-      user needs to fill on the web. No need to overthink this, the real goal is to POST the User's name
-      and phone number to your controller.
+      user needs to fill on the web. No need to overthink this, the real goal is to POST the User's
+      phone number to your controller.
 
       So what information does this form need? An input for the phone number and
       a submit button. Since the page doesn't need to render new content after clicking
       on submit, we decided to implement the POST action via Ajax using jQuery.
       Let's take a look at it.
 
- .step(data-title='Submit the Form', data-file='public/app.js', data-highlight="11-30")
+  .step(data-title='Submit the Form', data-file='public/app.js', data-highlight="11-30")
     :markdown
       ## Submit the Form
 
@@ -64,9 +68,9 @@
 
       This code does the following:
 
-      * Watches for the user "submitting" the form element
-      * Submits the form data to our controller
-      * Lets the user know if the submission was successful or not
+      * Watches for the user "submitting" the form element.
+      * Submits the form data to our controller.
+      * Lets the user know if the submission was successful or not.
 
       This is a common implementation of jQuery's `$.ajax()` method. Notice that we are
       returning the response message when the call has connected.
@@ -74,17 +78,17 @@
       Now that we have the front end done lets build the back end that will receive this data and
       call the user.
 
-.step(data-title='Initiate Client Object', data-file='routes/index.js',
+  .step(data-title='Initiate Client Object', data-file='routes/index.js',
     data-highlight="9")
     :markdown
       ## Initiate Client Object
 
-       First we initiate a `client` object with our Account SID and Auth Token. This is essentially
-       our Javascript REST API handler, which we could use to send SMS or a myriad of other things. But for
-       now we just need it to get access to some `twilio` object that we're going to use
-       to create phone calls.
+      First we initiate a `client` object with our Account SID and Auth Token. This is essentially
+      our Javascript REST API handler, which we could use to send SMS or a myriad of other things. But for
+      now we just need it to get access to a `twilio` object that we're going to use
+      to create phone calls.
 
-.step(data-title="Making a Phone Call", data-file='routes/index.js',
+  .step(data-title="Making a Phone Call", data-file='routes/index.js',
     data-highlight="42-55")
     :markdown
       ## Making a Phone Call
@@ -97,15 +101,15 @@
       [voice]: //www.twilio.com/docs/api/rest/making-calls
       [url]: //www.twilio.com/docs/api/rest/making-calls#url-parameter
 
-.step(data-title='The outbound endpoint', data-file='routes/index.js',
+  .step(data-title='The outbound endpoint', data-file='routes/index.js',
     data-highlight="59-64")
     :markdown
       ## The outbound endpoint
 
       Twilio makes a request to our application when the call is created using the REST API. This
-      means that we need to create an endpoint that is publicly available for internet requests.
+      means that we need to create an endpoint that is publicly available for Internet requests.
 
-.step(data-title='Generating TwiML', data-file='views/outbound.jade')
+  .step(data-title='Generating TwiML', data-file='views/outbound.jade')
     :markdown
       ## Generating TwiML
 
@@ -116,26 +120,26 @@
       so the customer can talk to him/her.
 
       In order to make writing TwiML easy, many of the helper libraries have methods that generate
-      TwiML for you. In this case we use a [Say verb](//www.twilio.com/docs/api/twiml/say) to create a TwiML response that will instruct
+      TwiML for you. In this case we use [twilio-node](//www.twilio.com/docs/libraries/node) to create a TwiML response that will instruct
       Twilio to say something.
 
       [verbs]: //www.twilio.com/docs/api/twiml#verbs
 
-.step(data-title='Where to Next?')
+  .step(data-title='Where to Next?')
     :markdown
       ## Where to next?
 
       That's it! We've just implemented click to call that allow your customers to connect with a
       support agent.
 
-      If you're a Node.js|Express developer working with Twilio, you might want to check out these
+      If you're a Node.js developer working with Twilio, you might want to check out these
       other tutorials:
 
       [**Automated Survey**](//www.twilio.com/docs/tutorials/walkthrough/automated-survey/node/express)
 
       Instantly collect structured data from your users with a survey
       conducted over a voice call or SMS text messages. Learn how to create
-      your own survey in Node.js|Express.
+      your own survey in Node.js.
 
       [**SMS and MMS Notifications**](//www.twilio.com/docs/tutorials/walkthrough/server-notifications/node/express)
 
