@@ -50,7 +50,7 @@
       ## The Web Form
 
       The first step on creating a real click-to-call solution is by building the form that your
-      user needs to fill on the web. No need to overthink this, the real goal is to POST the User's
+      user needs to fill on the web. No need to overthink this, the real goal is to POST the user's
       phone number to your controller.
 
       So what information does this form need? An input for the phone number and
@@ -58,9 +58,9 @@
       on submit, we decided to implement the POST action via Ajax using jQuery.
       Let's take a look at it.
 
-  .step(data-title='Submit the Form', data-file='public/app.js', data-highlight="11-30")
+  .step(data-title='Submitting the Form', data-file='public/app.js', data-highlight="11-30")
     :markdown
-      ## Submit the Form
+      ## Submitting the Form
 
       To make the click to call feature more seamless we used
       [Ajax](https://developer.mozilla.org/en-US/docs/AJAX) to send the form asynchronously. This
@@ -69,7 +69,7 @@
       This code does the following:
 
       * Watches for the user "submitting" the form element.
-      * Submits the form data to our controller.
+      * Submits the form's data to our controller.
       * Lets the user know if the submission was successful or not.
 
       This is a common implementation of jQuery's `$.ajax()` method. Notice that we are
@@ -84,7 +84,7 @@
       ## Initiate Client Object
 
       First we initiate a `client` object with our Account SID and Auth Token. This is essentially
-      our Javascript REST API handler, which we could use to send SMS or a myriad of other things. But for
+      our Javascript REST API handler that we could use to send SMSs or a myriad of other things. But for
       now we just need it to get access to a `twilio` object that we're going to use
       to create phone calls.
 
@@ -147,6 +147,6 @@
 
       ### Did this help?
 
-      Thanks for checking out this tutorial! If you have any feedback
+      Thanks for checking this tutorial out! If you have any feedback
       to share with us, we'd love to hear it.
       [Contact the Twilio Developer Education Team](mailto:deved-oss@twilio.com) to let us know what you think.
