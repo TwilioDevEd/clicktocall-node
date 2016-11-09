@@ -1,0 +1,15 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - 'stable'
+  - '4.4'
+
+install: npm install
+
+script: npm test
+
+env:
+  global:
+    - NODE_TLS_REJECT_UNAUTHORIZED=0

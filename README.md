@@ -5,6 +5,8 @@ step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-
 
 [Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/click-to-call/node/express)!
 
+[![Build Status](https://travis-ci.org/TwilioDevEd/clicktocall-node.svg?branch=master)](https://travis-ci.org/TwilioDevEd/clicktocall-node)
+
 ## Installation
 
 Step-by-step on how to deploy, configure and develop on this example app.
