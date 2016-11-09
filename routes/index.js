@@ -2,12 +2,13 @@ var path = require('path');
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var twilio = require('twilio');
+var Twilio = require('twilio');
 var config = require('../config');
 
 
 // Create a Twilio REST API client for authenticated requests to Twilio
-var client = twilio(config.accountSid, config.authToken);
+const client = new Twilio(config.accountSid, config.authToken);
+
 
 
 // Configure application routes
@@ -48,23 +49,23 @@ module.exports = function(app) {
 
         // Place an outbound call to the user, using the TwiML instructions
         // from the /outbound route
-        client.calls.create(options)
-          .then((message) => {
-            console.log(message.responseText);
-            response.send({
-                message: 'Thank you! We will be calling you shortly.',
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-            response.status(500).send(error);
-          });
+        client.api.v2010.accounts(config.accountSid).calls.create(options)
+          .then((error, message) => {
+            console.log(error ? error: message.responseText);
+            if (error) {
+                response.status(500).send(error);
+            } else {
+                response.send({
+                    message: 'Thank you! We will be calling you shortly.',
+                });
+            }
+        });
     });
 
     // Return TwiML instuctions for the outbound call
     app.post('/outbound/:salesNumber', function(request, response) {
         var salesNumber = request.params.salesNumber;
-        var twimlResponse = new twilio.TwimlResponse();
+        var twimlResponse = new Twilio.TwimlResponse();
 
         twimlResponse.say('Thanks for contacting our sales department. Our ' +
                           'next available representative will take your call. ',
