@@ -2,11 +2,13 @@ var path = require('path');
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var twilio = require('twilio');
-var config = require("../config");
+const Twilio = require('twilio');
+const config = require('../config');
+
 
 // Create a Twilio REST API client for authenticated requests to Twilio
-var client = twilio(config.accountSid, config.authToken);
+const client = new Twilio(config.accountSid, config.authToken);
+
 
 // Configure application routes
 module.exports = function(app) {
@@ -25,7 +27,7 @@ module.exports = function(app) {
     // Use morgan for HTTP request logging
     app.use(morgan('combined'));
 
-    // Home Page with Click to Call 
+    // Home Page with Click to Call
     app.get('/', function(request, response) {
         response.render('index');
     });
@@ -36,20 +38,23 @@ module.exports = function(app) {
         // Here, we just use the host for the application making the request,
         // but you can hard code it or use something different if need be
         var url = 'http://' + request.headers.host + '/outbound';
-        
-        // Place an outbound call to the user, using the TwiML instructions
-        // from the /outbound route
-        client.makeCall({
+
+        const options = {
             to: request.body.phoneNumber,
             from: config.twilioNumber,
-            url: url
-        }, function(err, message) {
-            console.log(err);
-            if (err) {
-                response.status(500).send(err);
+            url: url,
+        };
+
+        // Place an outbound call to the user, using the TwiML instructions
+        // from the /outbound route
+        client.api.v2010.accounts(config.accountSid).calls.create(options)
+          .then((error, message) => {
+            console.log(error ? error: message.responseText);
+            if (error) {
+                response.status(500).send(error);
             } else {
                 response.send({
-                    message: 'Thank you! We will be calling you shortly.'
+                    message: 'Thank you! We will be calling you shortly.',
                 });
             }
         });
@@ -63,5 +68,3 @@ module.exports = function(app) {
         response.render('outbound');
     });
 };
-
-
