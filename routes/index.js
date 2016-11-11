@@ -2,12 +2,12 @@ var path = require('path');
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-const Twilio = require('twilio');
-const config = require('../config');
+var twilio = require('twilio');
+var config = require('../config');
 
 
 // Create a Twilio REST API client for authenticated requests to Twilio
-const client = new Twilio(config.accountSid, config.authToken);
+var client = twilio(config.accountSid, config.authToken);
 
 
 // Configure application routes
@@ -39,7 +39,7 @@ module.exports = function(app) {
         // but you can hard code it or use something different if need be
         var url = 'http://' + request.headers.host + '/outbound';
 
-        const options = {
+        var options = {
             to: request.body.phoneNumber,
             from: config.twilioNumber,
             url: url,
@@ -47,7 +47,7 @@ module.exports = function(app) {
 
         // Place an outbound call to the user, using the TwiML instructions
         // from the /outbound route
-        client.api.v2010.accounts(config.accountSid).calls.create(options)
+        client.calls.create(options)
           .then((message) => {
             console.log(message.responseText);
             response.send({
