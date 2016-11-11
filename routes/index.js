@@ -48,16 +48,16 @@ module.exports = function(app) {
         // Place an outbound call to the user, using the TwiML instructions
         // from the /outbound route
         client.api.v2010.accounts(config.accountSid).calls.create(options)
-          .then((error, message) => {
-            console.log(error ? error: message.responseText);
-            if (error) {
-                response.status(500).send(error);
-            } else {
-                response.send({
-                    message: 'Thank you! We will be calling you shortly.',
-                });
-            }
-        });
+          .then((message) => {
+            console.log(message.responseText);
+            response.send({
+                message: 'Thank you! We will be calling you shortly.',
+            })
+          })
+          .then((error) => {
+            console.log(error);
+            response.status(500).send(error);
+          });
     });
 
     // Return TwiML instuctions for the outbound call
