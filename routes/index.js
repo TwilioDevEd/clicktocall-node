@@ -53,7 +53,7 @@ module.exports = function(app) {
             console.log(message.responseText);
             response.send({
                 message: 'Thank you! We will be calling you shortly.',
-            })
+            });
           })
           .then((error) => {
             console.log(error);
