@@ -6,9 +6,6 @@ node_js:
   - 'stable'
   - '4.4'
 
-install: npm install
-
-script: npm test
 
 env:
   global:
@@ -19,4 +16,3 @@ env:
 
 cache:
   apt: true
-  pip: true
