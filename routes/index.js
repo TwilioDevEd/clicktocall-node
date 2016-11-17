@@ -21,7 +21,7 @@ module.exports = function(app) {
 
     // Parse incoming request bodies as form-encoded
     app.use(bodyParser.urlencoded({
-        extended: true
+        extended: true,
     }));
 
     // Use morgan for HTTP request logging
@@ -55,7 +55,7 @@ module.exports = function(app) {
                 message: 'Thank you! We will be calling you shortly.',
             });
           })
-          .then((error) => {
+          .catch((error) => {
             console.log(error);
             response.status(500).send(error);
           });

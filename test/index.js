@@ -4,7 +4,7 @@ var request = require('supertest');
 var cheerio = require('cheerio');
 var server = require('../server');
 
-test('home page responds with 200', function (t) {
+test('home page responds with 200', function(t) {
     t.plan(1);
 
     request(server).get('/').expect(200).end(function(err, response) {
@@ -14,10 +14,9 @@ test('home page responds with 200', function (t) {
             t.pass('HTTP request successful');
         }
     });
-
 });
 
-test('TwiML response is valid', function (t) {
+test('TwiML response is valid', function(t) {
     t.plan(3);
 
     var url = '/outbound/' + encodeURIComponent('+15555555555');
