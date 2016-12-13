@@ -109,21 +109,20 @@
       Twilio makes a request to our application when the call is created using the REST API. This
       means that we need to create an endpoint that is publicly available for Internet requests.
 
-  .step(data-title='Generating TwiML', data-file='views/outbound.jade')
-    :markdown
-      ## Generating TwiML
+      .step(data-title='Generating TwiML', data-file='routes/index.js',
+        data-highlight="67-74")
+        :markdown
+          ## Generating TwiML
 
-      TwiML is a set of [simple verbs][verbs] written in XML that Twilio reads as instructions.
-      In this case our instructions inform Twilio to simply SAY something to the user. If we wanted
-      to connect the user to a real support agent, we would have to add a
-      [Dial verb](//www.twilio.com/docs/api/twiml/dial) that specifies the support agent number
-      so the customer can talk to him/her.
+          TwiML is a set of [simple verbs][verbs] written in XML that Twilio reads as instructions.
+          In this case our instructions inform Twilio to SAY something to the user and 
+          [Dial](//www.twilio.com/docs/api/twiml/dial) a support agent.
 
-      In order to make writing TwiML easy, many of the helper libraries have methods that generate
-      TwiML for you. In this case we use [twilio-node](//www.twilio.com/docs/libraries/node) to create a TwiML response that will instruct
-      Twilio to say something.
+          In order to make writing TwiML easy, many of the helper libraries have methods that generate
+          TwiML for you. In this case we use [twilio-node](//www.twilio.com/docs/libraries/node) to create a TwiML response that will instruct
+          Twilio to say something.
 
-      [verbs]: //www.twilio.com/docs/api/twiml#verbs
+          [verbs]: //www.twilio.com/docs/api/twiml#verbs
 
   .step(data-title='Where to Next?')
     :markdown
