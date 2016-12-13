@@ -45,7 +45,7 @@
       For more instructions on how to run the application refer to the [app's
       readme file](//github.com/TwilioDevEd/clicktocall-node/blob/master/README.md).
 
-  .step(data-title='The Web Form', data-file="views/index.jade", data-highlight="26-39")
+  .step(data-title='The Web Form', data-file="views/index.jade", data-highlight="26-44")
     :markdown
       ## The Web Form
 
@@ -53,12 +53,12 @@
       user needs to fill on the web. No need to overthink this, the real goal is to POST the user's
       phone number to your controller.
 
-      So what information does this form need? An input for the phone number and
-      a submit button. Since the page doesn't need to render new content after clicking
-      on submit, we decided to implement the POST action via Ajax using jQuery.
-      Let's take a look at it.
+      So what information does this form need? An input for the phone number, an
+       input for the sales team number and a submit button. Since the page doesn't
+       need to render new content after clicking on submit, we decided to implement
+       the POST action via Ajax using jQuery. Let's take a look at it.
 
-  .step(data-title='Submitting the Form', data-file='public/app.js', data-highlight="11-30")
+  .step(data-title='Submitting the Form', data-file='public/app.js', data-highlight="10-31")
     :markdown
       ## Submitting the Form
 
@@ -89,7 +89,7 @@
       to create phone calls.
 
   .step(data-title="Making a Phone Call", data-file='routes/index.js',
-    data-highlight="42-60")
+    data-highlight="36-63")
     :markdown
       ## Making a Phone Call
 
@@ -102,22 +102,21 @@
       [url]: //www.twilio.com/docs/api/rest/making-calls#url-parameter
 
   .step(data-title='The outbound endpoint', data-file='routes/index.js',
-    data-highlight="59-64")
+    data-highlight="65-77")
     :markdown
       ## The outbound endpoint
 
       Twilio makes a request to our application when the call is created using the REST API. This
       means that we need to create an endpoint that is publicly available for Internet requests.
 
-  .step(data-title='Generating TwiML', data-file='views/outbound.jade')
+  .step(data-title='Generating TwiML', data-file='routes/index.js',
+    data-highlight="67-74")
     :markdown
       ## Generating TwiML
 
       TwiML is a set of [simple verbs][verbs] written in XML that Twilio reads as instructions.
-      In this case our instructions inform Twilio to simply SAY something to the user. If we wanted
-      to connect the user to a real support agent, we would have to add a
-      [Dial verb](//www.twilio.com/docs/api/twiml/dial) that specifies the support agent number
-      so the customer can talk to him/her.
+      In this case our instructions inform Twilio to SAY something to the user and 
+      [Dial](//www.twilio.com/docs/api/twiml/dial) a support agent.
 
       In order to make writing TwiML easy, many of the helper libraries have methods that generate
       TwiML for you. In this case we use [twilio-node](//www.twilio.com/docs/libraries/node) to create a TwiML response that will instruct
