@@ -43,7 +43,7 @@ purposes of this tutorial we&#39;ll place them as environment variables that our
 <p>You can find your Twilio credentials in your <a href="//www.twilio.com/user/account">Account Dashboard</a>.</p>
 <p>For more instructions on how to run the application refer to the <a href="//github.com/TwilioDevEd/clicktocall-node/blob/master/README.md">app&#39;s
 readme file</a>.</p>
-</div><div data-title="The Web Form" data-file="views/index.jade" data-highlight="26-39" class="step"><h2 id="the-web-form">The Web Form</h2>
+</div><div data-title="The Web Form" data-file="views/index.jade" data-highlight="26-44" class="step"><h2 id="the-web-form">The Web Form</h2>
 <p>The first step on creating a real click-to-call solution is by building the form that your
 user needs to fill on the web. No need to overthink this, the real goal is to POST the user&#39;s
 phone number to your controller.</p>
@@ -70,29 +70,22 @@ call the user.</p>
 our Javascript REST API handler that we could use to send SMSs or a myriad of other things. But for
 now we just need it to get access to a <code>twilio</code> object that we&#39;re going to use
 to create phone calls.</p>
-</div><div data-title="Making a Phone Call" data-file="routes/index.js" data-highlight="42-55" class="step"><h2 id="making-a-phone-call">Making a Phone Call</h2>
+</div><div data-title="Making a Phone Call" data-file="routes/index.js" data-highlight="33-57" class="step"><h2 id="making-a-phone-call">Making a Phone Call</h2>
 <p>Next we&#39;ll use the <code>twilio</code> object created to <a href="//www.twilio.com/docs/api/rest/making-calls">make an outgoing phone call</a>
 which requires us to pass a From number, a To number and the <a href="//www.twilio.com/docs/api/rest/making-calls#url-parameter">URL Parameter</a> that tells Twilio what
 to do after it connects the call to our user. In this case Twilio needs to dial in the Agent once the
 call has been placed. We&#39;ll discuss this more in the next step.</p>
-</div><div data-title="The outbound endpoint" data-file="routes/index.js" data-highlight="59-64" class="step"><h2 id="the-outbound-endpoint">The outbound endpoint</h2>
+</div><div data-title="The outbound endpoint" data-file="routes/index.js" data-highlight="59-71" class="step"><h2 id="the-outbound-endpoint">The outbound endpoint</h2>
 <p>Twilio makes a request to our application when the call is created using the REST API. This
 means that we need to create an endpoint that is publicly available for Internet requests.</p>
-<p>.step(data-title=&#39;Generating TwiML&#39;, data-file=&#39;routes/index.js&#39;,
-  data-highlight=&quot;67-74&quot;)
-  :markdown</p>
-<pre><code>## Generating TwiML
-
-TwiML is a set of [simple verbs][verbs] written in XML that Twilio reads as instructions.
+</div><div data-title="Generating TwiML" data-file="routes/index.js" data-highlight="61-70" class="step"><h2 id="generating-twiml">Generating TwiML</h2>
+<p>TwiML is a set of <a href="//www.twilio.com/docs/api/twiml#verbs">simple verbs</a> written in XML that Twilio reads as instructions.
 In this case our instructions inform Twilio to SAY something to the user and 
-[Dial](//www.twilio.com/docs/api/twiml/dial) a support agent.
-
-In order to make writing TwiML easy, many of the helper libraries have methods that generate
-TwiML for you. In this case we use [twilio-node](//www.twilio.com/docs/libraries/node) to create a TwiML response that will instruct
-Twilio to say something.
-
-[verbs]: //www.twilio.com/docs/api/twiml#verbs
-</code></pre></div><div data-title="Where to Next?" class="step"><h2 id="where-to-next-">Where to next?</h2>
+<a href="//www.twilio.com/docs/api/twiml/dial">Dial</a> a support agent.</p>
+<p>In order to make writing TwiML easy, many of the helper libraries have methods that generate
+TwiML for you. In this case we use <a href="//www.twilio.com/docs/libraries/node">twilio-node</a> to create a TwiML response that will instruct
+Twilio to say something.</p>
+</div><div data-title="Where to Next?" class="step"><h2 id="where-to-next-">Where to next?</h2>
 <p>That&#39;s it! We&#39;ve just implemented click to call that allow your customers to connect with a
 support agent.</p>
 <p>If you&#39;re a Node.js developer working with Twilio, you might want to check out these
