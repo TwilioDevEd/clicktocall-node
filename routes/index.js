@@ -62,10 +62,8 @@ module.exports = function(app) {
         var twimlResponse = new twilio.TwimlResponse();
 
         twimlResponse.say('Thanks for contacting our sales department. Our ' +
-                          'next available representative will take your call. '
-                          , {
-                            voice: 'alice',
-                          });
+                          'next available representative will take your call. ',
+                          { voice: 'alice' });
 
         twimlResponse.dial(salesNumber);
 
