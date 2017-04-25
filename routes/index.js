@@ -3,6 +3,7 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var twilio = require('twilio');
+var VoiceResponse = require('twilio/lib/twiml/VoiceResponse');
 var config = require('../config');
 
 
@@ -64,7 +65,7 @@ module.exports = function(app) {
     // Return TwiML instuctions for the outbound call
     app.post('/outbound/:salesNumber', function(request, response) {
         var salesNumber = request.params.salesNumber;
-        var twimlResponse = new twilio.TwimlResponse();
+        var twimlResponse = new VoiceResponse();
 
         twimlResponse.say('Thanks for contacting our sales department. Our ' +
                           'next available representative will take your call. ',
