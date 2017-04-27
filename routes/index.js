@@ -3,7 +3,7 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var twilio = require('twilio');
-var VoiceResponse = require('twilio/lib/twiml/VoiceResponse');
+var VoiceResponse = twilio.twiml.VoiceResponse;
 var config = require('../config');
 
 
