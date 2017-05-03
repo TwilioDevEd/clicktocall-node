@@ -3,10 +3,13 @@ var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var twilio = require('twilio');
-var config = require("../config");
+var VoiceResponse = twilio.twiml.VoiceResponse;
+var config = require('../config');
+
 
 // Create a Twilio REST API client for authenticated requests to Twilio
 var client = twilio(config.accountSid, config.authToken);
+
 
 // Configure application routes
 module.exports = function(app) {
@@ -19,7 +22,7 @@ module.exports = function(app) {
 
     // Parse incoming request bodies as form-encoded
     app.use(bodyParser.urlencoded({
-        extended: true
+        extended: true,
     }));
 
     // Use morgan for HTTP request logging
@@ -38,28 +41,31 @@ module.exports = function(app) {
         var salesNumber = request.body.salesNumber;
         var url = 'http://' + request.headers.host + '/outbound/' + encodeURIComponent(salesNumber)
 
-        // Place an outbound call to the user, using the TwiML instructions
-        // from the /outbound route
-        client.makeCall({
+        var options = {
             to: request.body.phoneNumber,
             from: config.twilioNumber,
-            url: url
-        }, function(err, message) {
-            console.log(err);
-            if (err) {
-                response.status(500).send(err);
-            } else {
-                response.send({
-                    message: 'Thank you! We will be calling you shortly.'
-                });
-            }
-        });
+            url: url,
+        };
+
+        // Place an outbound call to the user, using the TwiML instructions
+        // from the /outbound route
+        client.calls.create(options)
+          .then((message) => {
+            console.log(message.responseText);
+            response.send({
+                message: 'Thank you! We will be calling you shortly.',
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            response.status(500).send(error);
+          });
     });
 
     // Return TwiML instuctions for the outbound call
     app.post('/outbound/:salesNumber', function(request, response) {
         var salesNumber = request.params.salesNumber;
-        var twimlResponse = new twilio.TwimlResponse();
+        var twimlResponse = new VoiceResponse();
 
         twimlResponse.say('Thanks for contacting our sales department. Our ' +
                           'next available representative will take your call. ',

@@ -6,17 +6,12 @@ node_js:
   - 'stable'
   - '4.4'
 
-install: npm install
-
-script: npm test
-
 env:
   global:
-    - NODE_TLS_REJECT_UNAUTHORIZED=0
     - TWILIO_ACCOUNT_SID="AC3f899f99b9ec999999ded99c09c99e09"  # fake
     - TWILIO_AUTH_TOKEN="89b09c9bff999999a9c9999c9eda9e91"  # fake
     - TWILIO_NUMBER="+5411511111381"  # fake
 
 cache:
-  apt: true
-  pip: true
+  directories:
+    - node_modules

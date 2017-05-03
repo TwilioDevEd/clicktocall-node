@@ -12,5 +12,5 @@ module.exports = {
     twilioNumber: process.env.TWILIO_NUMBER,
 
     // The port your web application will run on
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3000,
 };
