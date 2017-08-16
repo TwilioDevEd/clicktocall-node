@@ -18,14 +18,6 @@ step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-
 
 Step-by-step on how to deploy, configure and develop on this example app.
 
-
-### Fastest Deploy
-
-Use Heroku to deploy this app immediately.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TwilioDevEd/clicktocall-node)
-
-
 ### Getting Started
 
 1. Clone repository and `cd` into it.
@@ -34,32 +26,6 @@ Use Heroku to deploy this app immediately.
 git clone git://github.com/TwilioDevEd/clicktocall-node.git
 ```
 
-1. Navigate to folder and create new Heroku Cedar app.
-
-```bash
-heroku create
-```
-
-1. Deploy to Heroku.
-
-```bash
-git push heroku master
-```
-
-1. Scale your dynos.
-
-```bash
-heroku scale web=1
-```
-
-1. Visit the home page of your new Heroku app to see your newly configured app!
-
-```bash
-heroku open
-```
-
-
-### Configuration
 
 #### Setting Your Environment Variables
 
@@ -78,8 +44,10 @@ Are you using Windows or Linux? You can learn more about how to set variables [h
 ### Development
 
 Getting your local environment setup to work with this app is easy.  
-After you configure your app with the steps above use this guide to
-get it going locally.
+---
+For the following platforms, download the ngrok executable to host your application `live` online:
+---
+
 
 1. Install the dependencies.
 
@@ -87,16 +55,32 @@ get it going locally.
 npm install
 ```
 
-1. Launch local development webserver.
+2. Launch local development webserver.
 
 ```bash
 node app.js
 ```
 
-1. Open browser to [http://localhost:3000](http://localhost:3000).
+3. Download The Ngrok executable [here](https://ngrok.com/download).
 
-1. Tweak away on `routes/index.js`.
+4. Launch the ngrok executable wherever you placed the executable after unzipping
 
+```windows
+./ngrok http 3000
+```
+
+``` mac/bsd/linux
+ngrok http 3000 **place within your /usr/local/bin or /bin folder else perform the same command as windows**
+```
+5. Open browser to `http://your-random-ngrok-url:3000`
+
+6. Configure `public/app.js` or `routes/index.js` for extra customization.
+
+
+##Note
+
+Linux 32-bit ARM machines are unable to perform the outbound click-to-call example, someone can provide the necessary dependencies for
+proper execution?
 
 ## Meta
 
