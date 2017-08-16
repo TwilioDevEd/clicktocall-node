@@ -44,7 +44,6 @@ Are you using Windows or Linux? You can learn more about how to set variables [h
 ### Development
 
 Getting your local environment setup to work with this app is easy.  
-For the following platforms, download the ngrok executable to host your application `live` online:
 
 
 1. Install the dependencies.
@@ -59,6 +58,8 @@ npm install
 node app.js
 ```
 
+For the following platforms, download the ngrok executable to host your application `live` online:
+
 3. Download The Ngrok executable [here](https://ngrok.com/download).
 
 4. Launch the ngrok executable wherever you placed the executable after unzipping
@@ -70,7 +71,7 @@ node app.js
 ``` mac/bsd/linux
 ngrok http 3000 
 ```
-**place within your /usr/local/bin or /bin folder else perform the same command as windows**
+**place within your /usr/local/bin or /bin folder else perform the same command as windows for mac and linux platforms**
 
 5. Open browser to `http://your-random-ngrok-url:3000`
 
