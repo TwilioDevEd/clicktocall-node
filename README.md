@@ -16,14 +16,7 @@ step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-
 
 ## Installation
 
-Step-by-step on how to deploy, configure and develop on this example app.
-
-
-### Fastest Deploy
-
-Use Heroku to deploy this app immediately.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/TwilioDevEd/clicktocall-node)
+Step-by-step on how configure and develop on this example app.
 
 
 ### Getting Started
