@@ -13,45 +13,6 @@ step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-
 
 [![Build Status](https://travis-ci.org/TwilioDevEd/clicktocall-node.svg?branch=master)](https://travis-ci.org/TwilioDevEd/clicktocall-node)
 
-
-## Installation
-
-Step-by-step on how configure and develop on this example app.
-
-
-### Getting Started
-
-1. Clone repository and `cd` into it.
-
-```bash
-git clone git://github.com/TwilioDevEd/clicktocall-node.git
-```
-
-1. Navigate to folder and create new Heroku Cedar app.
-
-```bash
-heroku create
-```
-
-1. Deploy to Heroku.
-
-```bash
-git push heroku master
-```
-
-1. Scale your dynos.
-
-```bash
-heroku scale web=1
-```
-
-1. Visit the home page of your new Heroku app to see your newly configured app!
-
-```bash
-heroku open
-```
-
-
 ### Configuration
 
 #### Setting Your Environment Variables
