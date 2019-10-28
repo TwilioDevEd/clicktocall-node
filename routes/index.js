@@ -13,8 +13,8 @@ var client = twilio(config.accountSid, config.authToken);
 
 // Configure application routes
 module.exports = function(app) {
-    // Set Jade as the default template engine
-    app.set('view engine', 'jade');
+    // Set Pug as the default template engine
+    app.set('view engine', 'pug');
 
     // Express static file middleware - serves up JS, CSS, and images from the
     // "public" directory where we started our webapp process
@@ -39,7 +39,7 @@ module.exports = function(app) {
         // Here, we just use the host for the application making the request,
         // but you can hard code it or use something different if need be
         var salesNumber = request.body.salesNumber;
-        var url = 'http://' + request.headers.host + '/outbound/' + encodeURIComponent(salesNumber)
+        var url = 'http://' + request.headers.host + '/outbound/' + encodeURIComponent(salesNumber);
 
         var options = {
             to: request.body.phoneNumber,
@@ -62,7 +62,7 @@ module.exports = function(app) {
           });
     });
 
-    // Return TwiML instuctions for the outbound call
+    // Return TwiML instructions for the outbound call
     app.post('/outbound/:salesNumber', function(request, response) {
         var salesNumber = request.params.salesNumber;
         var twimlResponse = new VoiceResponse();
