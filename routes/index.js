@@ -13,8 +13,8 @@ var client = twilio(config.accountSid, config.authToken);
 
 // Configure application routes
 module.exports = function(app) {
-    // Set Jade as the default template engine
-    app.set('view engine', 'jade');
+    // Set Pug as the default template engine
+    app.set('view engine', 'pug');
 
     // Express static file middleware - serves up JS, CSS, and images from the
     // "public" directory where we started our webapp process
