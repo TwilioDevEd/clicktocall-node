@@ -13,9 +13,9 @@ step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-
 
 [![Build Status](https://travis-ci.org/TwilioDevEd/clicktocall-node.svg?branch=master)](https://travis-ci.org/TwilioDevEd/clicktocall-node)
 
-### Configuration
+## Configuration
 
-#### Setting Your Environment Variables
+### Setting Your Environment Variables
 
 Are you using a bash shell? Use echo $SHELL to find out. For a bash shell, using the Gmail example, edit the ~/.bashrc or ~/.bashprofile file and add:
 
@@ -27,7 +27,6 @@ export TWILIO_NUMBER=+15556667777
 ```
 
 Are you using Windows or Linux? You can learn more about how to set variables [here](https://www.java.com/en/download/help/path.xml).
-
 
 ### Development
 
@@ -41,7 +40,7 @@ get it going locally.
 npm install
 ```
 
-1. Launch local development webserver.
+1. Launch local development web server.
 
 ```bash
 node app.js
@@ -51,7 +50,7 @@ node app.js
 
 1. Tweak away on `routes/index.js`.
 
-### Making your localhost accesisble with ngrok
+### Making your localhost accessible with ngrok
 
 For Twilio to be able to talk to your application, you'll need a way to make your server publicly available to the internet.
 
