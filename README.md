@@ -6,8 +6,7 @@
 
 # Click to Call - Node.js
 
-[![Build
-Status](https://travis-ci.org/TwilioDevEd/browser-calls-spark.svg?branch=master)](https://travis-ci.org/TwilioDevEd/browser-calls-spark)
+[![Build Status](https://travis-ci.org/TwilioDevEd/clicktocall-node.svg?branch=master)](https://travis-ci.org/TwilioDevEd/clicktocall-node)
 
 > We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
 
@@ -15,8 +14,6 @@ This is an application example implementing Click to Call using Twilio.  For a
 step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-call).
 
 [Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/click-to-call/node/express)!
-
-[![Build Status](https://travis-ci.org/TwilioDevEd/clicktocall-node.svg?branch=master)](https://travis-ci.org/TwilioDevEd/clicktocall-node)
 
 ## Configuration
 
