@@ -38,19 +38,17 @@ get it going locally.
 
 1. Install the dependencies.
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
 1. Launch local development web server.
 
-```bash
-node app.js
-```
+    ```bash
+    node app.js
+    ```
 
-1. Open browser to [http://localhost:3000](http://localhost:3000).
-
-1. Tweak away on `routes/index.js`.
+1. Start up ngrok as detailed below.
 
 ### Making your localhost accessible with ngrok
 
