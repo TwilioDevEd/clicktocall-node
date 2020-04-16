@@ -3,10 +3,10 @@ const twilioClient = require('../lib/twilioClient');
 
 class FakeVoiceResponse {
   constructor(){}
-
-  say = jest.fn();
-  dial = jest.fn();
-  toString = () => ('fake response voice');
+  
+  say(){ return 'say-function' }
+  dial(){ return 'dial-function' }
+  toString(){ return 'fake response voice'; }
 }
 
 describe('twilio client', () => {
