@@ -4,7 +4,7 @@
   "description": "An example of implementing click to call functionality in a Node.js application",
   "main": "app.js",
   "scripts": {
-    "test": "node test | faucet",
+    "test": "export TWILIO_ACCOUNT_SID=ACXXXXX TWILIO_AUTH_TOKEN=XXXXX TWILIO_NUMBER=+15555555555 NODE_ENV=test && jest",
     "start": "node app.js"
   },
   "keywords": [
@@ -16,19 +16,21 @@
   "author": "Kevin Whinnery",
   "license": "MIT",
   "engines": {
-    "node": ">=4.1.0 <5.5.0"
+    "node": "^12"
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "morgan": "^1.7.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "pug": "^2.0.4",
-    "twilio": "^3.36.0"
+    "twilio": "^3.42.1"
   },
   "devDependencies": {
-    "tape": "^4.6.2",
-    "faucet": "*",
-    "supertest": "^2.0.1",
-    "cheerio": "^0.22.0"
+    "chai": "^4.2.0",
+    "jest": "^25.3.0",
+    "mocha": "^7.1.1",
+    "mock-require": "^3.0.3",
+    "supertest": "^4.0.2"
   }
 }
