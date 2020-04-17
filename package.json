@@ -27,10 +27,7 @@
     "twilio": "^3.42.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
     "jest": "^25.3.0",
-    "mocha": "^7.1.1",
-    "mock-require": "^3.0.3",
     "supertest": "^4.0.2"
   }
 }

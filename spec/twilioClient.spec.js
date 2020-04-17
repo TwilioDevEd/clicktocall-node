@@ -1,4 +1,3 @@
-const expect = require('chai').expect;
 const twilioClient = require('../lib/twilioClient');
 
 class FakeVoiceResponse {
@@ -12,7 +11,7 @@ class FakeVoiceResponse {
 describe('twilio client', () => {
   describe('createCall', () => {
     describe('when success', () => {
-      it('resolves with a thank you message', async() => {
+      test('resolves with a thank you message', async() => {
         const fakeTwilio = {
           calls: {
             create: function(){
@@ -22,12 +21,12 @@ describe('twilio client', () => {
         }
   
         let result = await twilioClient.createCall('sales-number', 'phone-number', 'http://localhost:1234', fakeTwilio);
-        expect(result).to.equal('Thank you! We will be calling you shortly.');
+        expect(result).toEqual('Thank you! We will be calling you shortly.');
       });
     });
   
     describe('when fails', () => {
-      it('rejects with the error', async() => {
+      test('rejects with the error', async() => {
         const fakeTwilio = {
           calls: {
             create: function(){
@@ -39,16 +38,16 @@ describe('twilio client', () => {
         try {
           await twilioClient.createCall('sales-number', 'phone-number', 'http://localhost:1234', fakeTwilio);
         }catch(error){
-          expect(error).to.deep.equal({ error: 'some error' });
+          expect(error).toEqual({ error: 'some error' });
         }
       });
     });
   });
 
   describe('voiceResponse', () => {
-    it('returns a string', () => {
+    test('returns a string', () => {
       let result = twilioClient.voiceResponse('sales-number', FakeVoiceResponse);
-      expect(result).to.equal('fake response voice');
+      expect(result).toEqual('fake response voice');
     });
   });
 });
