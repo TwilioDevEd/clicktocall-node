@@ -21,7 +21,7 @@ describe('index routes', () => {
     });
   });
 
-  describe('POST /cal', () => {
+  describe('POST /call', () => {
     describe('when success', () => {
       it('responds with 200', async() => {
         mockTwilioClient.createCall.mockImplementation(() => Promise.resolve('some message'));
@@ -29,43 +29,32 @@ describe('index routes', () => {
         let result = await agent.post('/call')
           .send({salesNumber: '+155', phoneNumber: '+123'});
 
+        expect(result.statusCode).to.equal(200);
         expect(result.text).to.deep.equal("{\"message\":\"some message\"}");
       });
     });
 
     describe('when fails', () => {
-      it('responds with 500', (done) => {
+      it('responds with 500', async() => {
         mockTwilioClient.createCall.mockImplementation(() => Promise.reject({error: 'some err'}));
 
-        agent
+        let result = await agent
           .post('/call')
-          .send({salesNumber: '+155', phoneNumber: '+123'})
-          .expect(500)
-          .end(function (err, res) {
-            if(err){
-              return done('should not fail');
-            }
-            expect(res.statusCode).to.equal(500);
-            done();
-          });
+          .send({salesNumber: '+155', phoneNumber: '+123'});
+        
+        expect(result.statusCode).to.equal(500);
       });
     });
   });
 
   describe('POST /outbound/:salesNumber', () => {
-    it('responds with a string', (done) => {
+    it('responds with a string', async() => {
       mockTwilioClient.voiceResponse.mockImplementation(() => 'VoiceResponse');
 
-      agent
-        .post('/outbound/123456')
-        .expect(200)
-        .end((err, res) => {
-          if(err){
-            return done('should not fail');
-          }
-          expect(res.text).to.equal('VoiceResponse');
-          done();
-        });
+      let result = await agent.post('/outbound/123456');
+
+      expect(result.statusCode).to.equal(200);
+      expect(result.text).to.equal('VoiceResponse');
     });
   });
 });

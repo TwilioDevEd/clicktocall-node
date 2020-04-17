@@ -45,7 +45,7 @@ Getting your local environment setup to work with this app is easy.
     npm start
     ```
 
-1. Start up ngrok as detailed below.
+1. Start up ngrok as detailed below. This step **is important** because the application won't work as expected if you run it through localhost.
 
 ### Making your localhost accessible with ngrok
 
