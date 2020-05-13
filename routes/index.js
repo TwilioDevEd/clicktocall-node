@@ -1,17 +1,10 @@
-var path = require('path');
-var express = require('express');
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
-var twilio = require('twilio');
-var VoiceResponse = twilio.twiml.VoiceResponse;
-var config = require('../config');
+const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
 
+const twilioClient = require('../lib/twilioClient');
 
-// Create a Twilio REST API client for authenticated requests to Twilio
-var client = twilio(config.accountSid, config.authToken);
-
-
-// Configure application routes
 module.exports = function(app) {
     // Set Pug as the default template engine
     app.set('view engine', 'pug');
@@ -21,8 +14,9 @@ module.exports = function(app) {
     app.use(express.static(path.join(process.cwd(), 'public')));
 
     // Parse incoming request bodies as form-encoded
+    app.use(bodyParser.json({}));
     app.use(bodyParser.urlencoded({
-        extended: true,
+        extended: true
     }));
 
     // Use morgan for HTTP request logging
@@ -30,49 +24,32 @@ module.exports = function(app) {
 
     // Home Page with Click to Call
     app.get('/', function(request, response) {
-        response.render('index');
+      response.render('index');
     });
 
     // Handle an AJAX POST request to place an outbound call
     app.post('/call', function(request, response) {
-        // This should be the publicly accessible URL for your application
-        // Here, we just use the host for the application making the request,
-        // but you can hard code it or use something different if need be
-        var salesNumber = request.body.salesNumber;
-        var url = 'http://' + request.headers.host + '/outbound/' + encodeURIComponent(salesNumber);
+      let salesNumber = request.body.salesNumber;
+      let phoneNumber = request.body.phoneNumber;
 
-        var options = {
-            to: request.body.phoneNumber,
-            from: config.twilioNumber,
-            url: url,
-        };
+      // This should be the publicly accessible URL for your application
+      // Here, we just use the host for the application making the request,
+      // but you can hard code it or use something different if need be
+      // For local development purposes remember to use ngrok and replace the headerHost
+      let headersHost = 'http://' + request.headers.host;
 
-        // Place an outbound call to the user, using the TwiML instructions
-        // from the /outbound route
-        client.calls.create(options)
-          .then((message) => {
-            console.log(message.responseText);
-            response.send({
-                message: 'Thank you! We will be calling you shortly.',
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-            response.status(500).send(error);
-          });
+      twilioClient.createCall(salesNumber, phoneNumber, headersHost)
+        .then((result) => {
+        response.send({message: result});
+        })
+        .catch((error) => {
+        response.status(500).send(error);
+        });
     });
 
     // Return TwiML instructions for the outbound call
     app.post('/outbound/:salesNumber', function(request, response) {
-        var salesNumber = request.params.salesNumber;
-        var twimlResponse = new VoiceResponse();
-
-        twimlResponse.say('Thanks for contacting our sales department. Our ' +
-                          'next available representative will take your call. ',
-                          { voice: 'alice' });
-
-        twimlResponse.dial(salesNumber);
-
-        response.send(twimlResponse.toString());
+      let result = twilioClient.voiceResponse(request.params.salesNumber);
+      response.send(result);
     });
 };
