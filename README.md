@@ -10,52 +10,107 @@
 
 > We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
 
+## About
+
 This is an application example implementing Click to Call using Twilio.  For a
 step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-call).
 
 [Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/click-to-call/node/express)!
 
+Implementations in other languages:
+
+| .NET | Java | Python | Ruby | PHP |
+| :--- | :--- | :----- | :-- | :--- |
+| [Done](https://github.com/TwilioDevEd/clicktocall-csharp)  | [Done](https://github.com/TwilioDevEd/clicktocall-spring)  | [Done](https://github.com/TwilioDevEd/clicktocall-flask)  | [Done](https://github.com/TwilioDevEd/clicktocall-rails) | [Done](https://github.com/TwilioDevEd/clicktocall-php)  |
+
+## Set up
+
+### Requirements
+
+- [Nodejs](https://nodejs.org/) v10 or v12
+
+### Twilio Account Settings
+
+This application should give you a ready-made starting point for writing your own application.
+Before we begin, we need to collect all the config values we need to run the application:
+
+| Config Value | Description                                                                                                                                                  |
+| :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TWILIO_ACCOUNT_SID  | Your primary Twilio account identifier - find this [in the Console](https://www.twilio.com/console/project/settings).                                                         |
+| TWILIO_AUTH_TOKEN   | Used to authenticate - just like the above, you'll find this [here](https://www.twilio.com/console/project/settings).                                                         |
+| TWILIO_NUMBER | A Twilio phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) - you can [get one here](https://www.twilio.com/console/phone-numbers/incoming) |
+
 ### Local Development
 
-Getting your local environment setup to work with this app is easy.
+1. First clone this repository and `cd` into it.
 
-1. Copy the `.env.example` file to `.env`, and edit it including your credentials
-   for the Twilio API (found at https://www.twilio.com/user/account/settings). You
-   will also need a [Twilio Number](https://www.twilio.com/user/account/phone-numbers/incoming).
+   ```bash
+   git clone https://github.com/TwilioDevEd/clicktocall-node.git
+   cd clicktocall-node
+   ```
+
+2. Install the dependencies.
+
+   ```bash
+   npm install
+   ```
+
+3. Copy the sample configuration file and edit it to match your configuration.
 
     ```bash
     cp .env.example .env
     ```
 
-1. Install the dependencies.
+    See [Twilio Account Settings](#twilio-account-settings) to locate the necessary environment variables.
 
-    ```bash
-    npm install
-    ```
-
-1. Run tests.
-
-    ```bash
-    npm test
-    ```
-
-1. Launch local development web server.
+4. Launch local development web server, will run on port 3000.
 
     ```bash
     npm start
     ```
 
-1. Start up ngrok as detailed below. This step **is important** because the application won't work as expected if you run it through localhost.
+5. For Twilio to be able to talk to your application, you'll need a way to make your server publicly available to the internet. For local testing purposes, we recommend using [ngrok](http://ngrok.io/). Ngrok provides secure introspectable tunnels to localhost webhook development: for more information and instructions on setting up ngrok to work with your application, check out [this section of the Click to Call tutorial](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express#testing-your-app-locally).
 
-### Making your localhost accessible with ngrok
+   ```bash
+   ngrok http 3000
+   ```
 
-For Twilio to be able to talk to your application, you'll need a way to make your server publicly available to the internet.
+6. Finally, open up your browser and go to your ngrok URL. It will look something like this: `http://<sub-domain>.ngrok.io`
 
-For local testing purposes, we recommend using [ngrok](http://ngrok.io/). Ngrok provides secure introspectable tunnels to localhost webhook development: for more information and instructions on setting up ngrok to work with your application, check out [this section of the Click to Call tutorial](https://www.twilio.com/docs/voice/tutorials/click-to-call-node-express#testing-your-app-locally).
+That's it!
 
-## Meta
+### Tests
 
-* No warranty expressed or implied.  Software is as is. Diggity.
-* The CodeExchange repository can be found [here](https://github.com/twilio-labs/code-exchange/).
-* [MIT License](http://www.opensource.org/licenses/mit-license.html)
-* Lovingly crafted by Twilio Developer Education.
+To execute tests, run the following command in the project directory:
+
+```bash
+npm test
+```
+
+### Cloud deployment
+
+Additionally to trying out this application locally, you can deploy it to a variety of host services. Here is a small selection of them.
+
+Please be aware that some of these might charge you for the usage or might make the source code for this application visible to the public. When in doubt research the respective hosting service first.
+
+| Service                           |                                                                                                                                                                                                                           |
+| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Heroku](https://www.heroku.com/) | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)                                                                                                                                       |
+
+## Resources
+
+- The CodeExchange repository can be found [here](https://github.com/twilio-labs/code-exchange/).
+
+## Contributing
+
+This template is open source and welcomes contributions. All contributions are subject to our [Code of Conduct](https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md).
+
+## License
+
+[MIT](http://www.opensource.org/licenses/mit-license.html)
+
+## Disclaimer
+
+No warranty expressed or implied. Software is as is.
+
+[twilio]: https://www.twilio.com
