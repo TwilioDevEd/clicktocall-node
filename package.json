@@ -4,7 +4,7 @@
   "description": "An example of implementing click to call functionality in a Node.js application",
   "main": "app.js",
   "scripts": {
-    "test": "export TWILIO_ACCOUNT_SID=ACXXXXX TWILIO_AUTH_TOKEN=XXXXX TWILIO_NUMBER=+15555555555 NODE_ENV=test && jest",
+    "test": "TWILIO_ACCOUNT_SID=ACXXXXX TWILIO_AUTH_TOKEN=XXXXX TWILIO_NUMBER=+15555555555 jest",
     "start": "node app.js"
   },
   "keywords": [
