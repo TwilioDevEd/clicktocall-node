@@ -15,7 +15,7 @@
 This is an application example implementing Click to Call using Twilio.  For a
 step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-call).
 
-[Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/click-to-call/node/express)!
+[Read the tutorial here](https://www.twilio.com/docs/voice/tutorials/click-to-call)!
 
 Implementations in other languages:
 
