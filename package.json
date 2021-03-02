@@ -22,7 +22,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "twilio": "^3.36.0"
   },
   "devDependencies": {
