@@ -48,7 +48,7 @@ module.exports = function(app) {
     });
 
     // Return TwiML instructions for the outbound call
-    app.post('/outbound/:salesNumber', function(request, response) {
+    app.get('/outbound/:salesNumber', function(request, response) {
       let result = twilioClient.voiceResponse(request.params.salesNumber);
       response.send(result);
     });
