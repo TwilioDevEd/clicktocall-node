@@ -6,22 +6,7 @@
 
 # Click to Call - Node.js
 
-![](https://github.com/TwilioDevEd/clicktocall-node/workflows/Node.js/badge.svg)
-
-> This template is part of Twilio CodeExchange. If you encounter any issues with this code, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues).
-
-## About
-
-This is an application example implementing Click to Call using Twilio.  For a
-step-by-step tutorial, [visit this link](https://twilio.com/docs/howto/click-to-call).
-
-[Read the tutorial here](https://www.twilio.com/docs/voice/tutorials/click-to-call)!
-
-Implementations in other languages:
-
-| .NET | Java | Python | Ruby | PHP |
-| :--- | :--- | :----- | :-- | :--- |
-| [Done](https://github.com/TwilioDevEd/clicktocall-csharp)  | [Done](https://github.com/TwilioDevEd/clicktocall-spring)  | [Done](https://github.com/TwilioDevEd/clicktocall-flask)  | [Done](https://github.com/TwilioDevEd/clicktocall-rails) | [Done](https://github.com/TwilioDevEd/clicktocall-php)  |
+> This repository is archived and no longer maintained. Check out the [Twilio Voice](https://www.twilio.com/docs/voice/) docs for links to other tutorials. 
 
 ## Set up
 
@@ -96,23 +81,9 @@ To execute tests, run the following command in the project directory:
 npm test
 ```
 
-### Cloud deployment
-
-Additionally to trying out this application locally, you can deploy it to a variety of host services. Here is a small selection of them.
-
-Please be aware that some of these might charge you for the usage or might make the source code for this application visible to the public. When in doubt research the respective hosting service first.
-
-| Service                           |                                                                                                                                                                                                                           |
-| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Heroku](https://www.heroku.com/) | [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)                                                                                                                                       |
-
 ## Resources
 
 - The CodeExchange repository can be found [here](https://github.com/twilio-labs/code-exchange/).
-
-## Contributing
-
-This template is open source and welcomes contributions. All contributions are subject to our [Code of Conduct](https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
